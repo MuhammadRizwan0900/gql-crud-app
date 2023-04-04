@@ -1,0 +1,32 @@
+{
+  "name": "gql-crud-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuhammadRizwan0900/gql-crud-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MuhammadRizwan0900/gql-crud-app/issues"
+  },
+  "homepage": "https://github.com/MuhammadRizwan0900/gql-crud-app#readme",
+  "dependencies": {
+    "apollo-server": "^3.12.0",
+    "apollo-server-express": "^3.12.0",
+    "bcryptjs": "^2.4.3",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^5.21.13"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "sequelize-cli": "^6.6.0"
+  }
+}
