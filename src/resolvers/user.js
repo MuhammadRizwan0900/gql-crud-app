@@ -25,12 +25,19 @@ module.exports = {
       return user;
     },
     updateUser: async (parent, args) => {
-      const user = await Users.update({
+      const result = await Users.findOne({where: {id: args.id}});
+      if(!result) {
+        return {
+          message: "User does not exist"
+        }
+      }
+      let user = await Users.update({
         name: args.name,
         email: args.email,
         password: args.password,
         role: args.role
       },{ where: { id: args.id } });
+      user = await Users.findOne({where: {id: args.id}});
       return user;
     },
     deleteUser:  async (parent, args) => {
