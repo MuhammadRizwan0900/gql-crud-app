@@ -1,15 +1,25 @@
-const { ApolloServer } = require('apollo-server');
+const { ApolloServer } = require('apollo-server-express');
+const express = require("express");
 const sequelize = require("./database/connection");
-const schema = require('./graphQLSchema');
-
-const server = new ApolloServer({
-    typeDefs: schema.typeDefs,
-    resolvers: schema.resolvers
-});
+const schema = require("./src/schema");
+const resolvers = require("./src/resolvers");
+const app = express();
+let apolloServer = null;
+async function startServer() {
+    apolloServer = new ApolloServer({
+        introspection: true,
+        typeDefs: schema,
+        resolvers
+    });
+    await apolloServer.start();
+    apolloServer.applyMiddleware({ app, path: "/api/graphql" });
+}
+startServer();
 sequelize.authenticate().then(() => {
     console.log('Connection has been established successfully.');
  }).catch((error) => {
     console.error('Unable to connect to the database: ', error);
  });
- 
-server.listen({port: 4000}).then(({url}) => console.log(`Server is running at ${url}`));
+app.listen(4000, ()=> {
+    console.log(`Server is runnung on port 4000`);
+});

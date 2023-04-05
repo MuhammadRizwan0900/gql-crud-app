@@ -21,6 +21,8 @@
     "apollo-server": "^3.12.0",
     "apollo-server-express": "^3.12.0",
     "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "graphql-iso-date": "^3.6.1",
     "pg": "^8.10.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^5.21.13"
